@@ -1,4 +1,3 @@
-@file:Suppress("UNREACHABLE_CODE")
 /*
 ¿DÓNDE ESTÁ R2D2?
 
@@ -37,21 +36,25 @@ x: 5, y: -12, direction: POSITIVEX
 x: 9, y: -20, direction: NEGATIVEX
 */
 
-fun main()
-{
-    val r2d2Pos: List<Int>
+fun main() {
+    val r2d2Pos1 = moverRobot(intArrayOf(10, 5, -2))
+    PosYDir(r2d2Pos1)
 
-    r2d2Pos = moverRobot(10, 5, -2)
-    println("x: ${r2d2Pos[0]}, y: ${r2d2Pos[1]}, direction: $dirRobot")
+    val r2d2Pos2 = moverRobot(intArrayOf(0, 0, 0))
+    PosYDir(r2d2Pos2)
 
+    val r2d2Pos3 = moverRobot(intArrayOf(-10, -5, 2))
+    PosYDir(r2d2Pos3)
+
+    val r2d2Pos4 = moverRobot(intArrayOf(-10, -5, 2, 4, -8))
+    PosYDir(r2d2Pos4)
 }
 
-fun moverRobot(movs: IntArray): Int {
-    //Comienza en la posción (0, 0) con la dirección Y positiva
-
+fun moverRobot(movs: IntArray): Triple<Int, Int, String> {
+    // Comienza en la posición (0, 0) con la dirección Y positiva
     var posX = 0
     var posY = 0
-    var dir = 0     //0 => POSITIVEY ; 1 => NEGATIVEX ; 2 => NEGATIVEY ; 3 => POSITIVEX
+    var dir = 0     // 0 => POSITIVEY ; 1 => NEGATIVEX ; 2 => NEGATIVEY ; 3 => POSITIVEX
 
     for (pasos in movs) {
         when (dir) {
@@ -61,22 +64,25 @@ fun moverRobot(movs: IntArray): Int {
             3 -> posX += pasos
         }
 
-        //Al finalizar cada movimiento añado el giro de 90 grados
-
+        // Al finalizar cada movimiento, añado el giro de 90 grados
         if (dir == 3) dir = 0 else dir += 1
     }
-    return posX;posY
+
+    val direccionFinal = obtenerDireccion(dir)
+    return Triple(posX, posY, direccionFinal)
 }
-fun dirRobot(dir: Int):   String  {
-    return when (dir)
-    {
-    0 -> "POSITIVEY"
-    1 -> "NEGATIVEX"
-    2 -> "NEGATIVEY"
-    3 -> "POSITIVEX"
-        else -> {}
+
+fun obtenerDireccion(dir: Int): String {
+    return when (dir) {
+        0 -> "POSITIVEY"
+        1 -> "NEGATIVEX"
+        2 -> "NEGATIVEY"
+        3 -> "POSITIVEX"
+        else -> throw IllegalArgumentException("Dirección no válida")
     }
 }
 
-
+fun PosYDir(posicion: Triple<Int, Int, String>) {
+    println("x: ${posicion.first}, y: ${posicion.second}, direction: ${posicion.third}")
+}
 
