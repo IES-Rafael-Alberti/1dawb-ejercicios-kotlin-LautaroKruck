@@ -1,12 +1,11 @@
+
 fun main() {
     do {
         val num = pedirNum(1, 100)
         val tabla = Array(10) { i -> (i + 1) * num }
 
         println("Tabla de multiplicar del $num:")
-        for (i in 0 until tabla.size) {
-            println("$num x ${i + 1} = ${tabla[i]}")
-        }
+        for (i in tabla.indices) println("$num x ${i + 1} = ${tabla[i]}")
 
     } while (pregunta("¿Desea generar otra tabla de multiplicación?"))
 }
@@ -60,14 +59,15 @@ fun pedirNum(min: Int, max: Int): Int {
     return num
 }
 
-fun pregunta(text: String): Boolean {
-    val scanner = Scanner(System.`in`)
-    while (true) {
+fun pregunta(text: String): Boolean
+{
         print("$text (s/n): ")
-        val respuesta = scanner.next().toLowerCase()
-        if (respuesta == "s") return true
-        else if (respuesta == "n") return false
-        else println("Error en respuesta. Debes contestar con 's' o 'n'.")
-    }
+        val respuesta = readln().ToLowerCase()
+        when (respuesta)
+        {
+            "s" -> return true
+            "n" -> return false
+            else -> println("Error en respuesta. Debes contestar con 's' o 'n'.")
+        }
 }
 
