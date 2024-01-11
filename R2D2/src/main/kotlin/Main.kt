@@ -85,4 +85,3 @@ fun obtenerDireccion(dir: Int): String {
 fun PosYDir(posicion: Triple<Int, Int, String>) {
     println("x: ${posicion.first}, y: ${posicion.second}, direction: ${posicion.third}")
 }
-

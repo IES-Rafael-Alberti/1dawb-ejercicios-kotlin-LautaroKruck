@@ -65,11 +65,11 @@ fun ejer_1_20() {
     do {
         println("**ERROR** ")
         println("Introduzca una opción válida. (S/N)")
-        prefijo = readLine() ?: ""
+        prefijo = readln() ?: ""
     } while (prefijo != "S" && prefijo != "N")
 
     println("Introduzca su número: ")
-    var telefono = readLine() ?: ""
+    var telefono = readln() ?: ""
 
     if (prefijo == "S") {
         telefono = telefono.replace("+34", "").replace("-", "")
@@ -81,7 +81,7 @@ fun ejer_1_20() {
 
 fun ejer_1_21() {
     println("Introduce una frase:")
-    val frase = readLine() ?: ""
+    val frase = readln() ?: ""
 
     val fraseInvertida = invertirFrase(frase)
 
@@ -94,10 +94,10 @@ fun invertirFrase(frase: String): String {
 
 fun ejer_1_22() {
     println("Introduce una frase:")
-    val frase = readLine() ?: ""
+    val frase = readln() ?: ""
 
     println("Introduce una vocal:")
-    val vocal = readLine() ?: ""
+    val vocal = readln() ?: ""
 
     if (vocal.length == 1 && vocal[0].toLowerCase() in "aeiou") {
         val fraseConVocalMayuscula = frase.replace(vocal.toLowerCase(), vocal.toUpperCase())
@@ -155,13 +155,13 @@ fun ejer_1_26() {
 fun ejer_1_27(){
 
     println("Introduce el nombre del producto:")
-    val nombreProducto = readLine() ?: ""
+    val nombreProducto = readln() ?: ""
 
     println("Introduce el precio del producto:")
-    val precioProducto = readLine()?.toDoubleOrNull() ?: 0.0
+    val precioProducto = readln()?.toDoubleOrNull() ?: 0.0
 
     println("Introduce el número de unidades:")
-    val unidades = readLine()?.toIntOrNull() ?: 0
+    val unidades = readln()?.toIntOrNull() ?: 0
 
     val costoTotal = precioProducto * unidades
 
@@ -173,14 +173,14 @@ fun ejer_1_27(){
 
 fun ejer_2_1_2() {
     // Almacenar la contraseña en una variable
-    val contraseñaGuardada = "contraseña"
+    val conGuardada = "contraseña"
 
     // Solicitar al usuario que ingrese la contraseña
     print("Ingrese la contraseña: ")
-    val contraseñaUsuario = readLine()
+    val conUsuario = readln()
 
     // Verificar si la contraseña introducida coincide (sin distinción entre mayúsculas y minúsculas)
-    if (contraseñaUsuario.equals(contraseñaGuardada, ignoreCase = true)) {
+    if (conUsuario.equals(conGuardada, ignoreCase = true)) {
         println("¡Contraseña correcta!")
     } else {
         println("Contraseña incorrecta.")
@@ -190,10 +190,10 @@ fun ejer_2_1_2() {
 fun ejer_2_1_3() {
     // Solicitar al usuario que ingrese dos números
     print("Ingrese el numerador: ")
-    val numerador = readLine()?.toDouble()
+    val numerador = readln()?.toDouble()
 
     print("Ingrese el divisor: ")
-    val divisor = readLine()?.toDouble()
+    val divisor = readln()?.toDouble()
 
     // Verificar si el divisor es cero
     if (divisor != 0.0) {
@@ -209,11 +209,11 @@ fun ejer_2_1_3() {
 fun ejer_2_1_6() {
     // Solicitar al usuario que ingrese su nombre
     print("Ingrese su nombre: ")
-    val nombre = readLine()
+    val nombre = readln()
 
     // Solicitar al usuario que ingrese su sexo
     print("Ingrese su sexo (M/F): ")
-    val sexo = readLine()?.toUpperCase()
+    val sexo = readln()?.toUpperCase()
 
     // Verificar a qué grupo pertenece el usuario
     if (nombre != null && sexo == "M" || sexo == "F") {
@@ -237,7 +237,7 @@ fun determinarGrupo(nombre: String, sexo: String): Char {
 fun ejer_2_1_8() {
     // Solicitar al usuario que ingrese la puntuación del empleado
     print("Ingrese la puntuación del empleado (0.0, 0.4, 0.6 o más): ")
-    val puntuacion = readLine()?.toDouble()
+    val puntuacion = readln()?.toDouble()
 
     // Verificar la puntuación y determinar el nivel y la cantidad de dinero correspondiente
     if (puntuacion != null) {
@@ -268,7 +268,7 @@ fun calcularCantidadDinero(puntuacion: Double): Double {
 fun ejer_2_3_2() {
     // Solicitar al usuario un número entero positivo
     print("Ingrese un número entero positivo: ")
-    val numero = readLine()?.toInt()
+    val numero = readln()?.toInt()
 
     // Verificar si el número es positivo
     if (numero != null && numero > 0) {
@@ -290,7 +290,7 @@ fun ejer_2_3_3() {
     do {
         // Solicitar al usuario un número entero positivo
         print("Ingrese un número entero positivo: ")
-        numero = readLine()?.toInt() ?: 0
+        numero = readln()?.toInt() ?: 0
 
         // Verificar si el número es positivo
         if (numero <= 0) {
@@ -312,7 +312,7 @@ fun ejer_2_3_4() {
     try {
         // Solicitar al usuario un número entero
         print("Ingrese un número entero: ")
-        val numero = readLine()?.toInt() ?: throw NumberFormatException("La entrada no es válida")
+        val numero = readln()?.toInt() ?: throw NumberFormatException("La entrada no es válida")
 
         // Mostrar el número ingresado
         println("Número ingresado: $numero")

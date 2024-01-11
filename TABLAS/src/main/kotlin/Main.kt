@@ -1,51 +1,12 @@
 
-fun main() {
-    do {
-        val num = pedirNum(1, 100)
-        val tabla = Array(10) { i -> (i + 1) * num }
-
-        println("Tabla de multiplicar del $num:")
-        for (i in tabla.indices) println("$num x ${i + 1} = ${tabla[i]}")
-
-    } while (pregunta("¿Desea generar otra tabla de multiplicación?"))
-}
-fun pedirtabla(min: Int, max: Int): Int {
-
-    var tabla: Int
-    var error = false
-
-    do {
-        print("Seleccione opción (0 = SALIR) >> ")
-        tabla = try {
-            readln().toInt()
-        } catch (ex: NumberFormatException) {
-            error = true
-            -1
-        }
-
-        if (error || tabla !in min..max) {
-            mensajeError(1)
-            error = false
-        }
-    } while (tabla !in min..max)
-
-    return tabla
-}
-
-fun limpiaConsola() {
-    for (i in 1..20) {
-        println()
-    }
-}
-import java.util.*
 
 fun pedirNum(min: Int, max: Int): Int {
     var num: Int
-    val scanner = Scanner(System.`in`)
-    while (true) {
+    val salir = false
+    while (!salir) {
         try {
             print("Introduce un número entre $min y $max: ")
-            num = scanner.nextInt()
+            num = readln()
             if (num in min..max) {
                 break
             } else {
@@ -53,7 +14,6 @@ fun pedirNum(min: Int, max: Int): Int {
             }
         } catch (e: InputMismatchException) {
             println("Error en entrada. Debes introducir un número entero.")
-            scanner.nextLine() // Limpiar el buffer del scanner
         }
     }
     return num
@@ -65,9 +25,19 @@ fun pregunta(text: String): Boolean
         val respuesta = readln().ToLowerCase()
         when (respuesta)
         {
-            "s" -> return true
-            "n" -> return false
-            else -> println("Error en respuesta. Debes contestar con 's' o 'n'.")
+            "s","si" -> return true
+            "n","no" -> return false
+            else -> println("Error en respuesta. Debes contestar con 's','si' o 'n','no'.")
         }
 }
 
+fun main() {
+    do {
+        val num = pedirNum(1, 100)
+        val tabla = Array(11) { i -> (i + 1) * num }
+
+        println("Tabla de multiplicar del $num:")
+        for (i in tabla.indices) println("$num x ${i + 1} = ${tabla[i]}")
+
+    } while (pregunta("¿Desea generar otra tabla de multiplicación?"))
+}
