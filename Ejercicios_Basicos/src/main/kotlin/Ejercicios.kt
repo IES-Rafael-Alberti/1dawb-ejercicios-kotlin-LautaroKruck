@@ -65,7 +65,7 @@ fun ejer_1_20() {
     do {
         println("**ERROR** ")
         println("Introduzca una opción válida. (S/N)")
-        prefijo = readLine().uppercase() ?: ""
+        prefijo = readLine() ?: ""
     } while (prefijo != "S" && prefijo != "N")
 
     println("Introduzca su número: ")
