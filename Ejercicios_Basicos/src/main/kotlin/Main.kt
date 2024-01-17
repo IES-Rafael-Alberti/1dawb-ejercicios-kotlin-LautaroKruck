@@ -1,13 +1,4 @@
-3 -> {
-    println("1. Listas 04")
-    println("2. Listas 06")
-    println("3. Diccionario 03")
 
-    op = pedirOpcion(0, 3)
-    when (op) {
-        1 -> ejemplo2()
-        2 -> ejemplo2()
-        3 -> ejemplo2()
 
 fun main() {
     var op: Int
