@@ -1,0 +1,2 @@
+C:\Users\lauta\IdeaProjects\1dawb-ejercicios-kotlin-LautaroKruck\Ejercicios_Basicos\src\main\kotlin\Ejercicios.kt
+C:\Users\lauta\IdeaProjects\1dawb-ejercicios-kotlin-LautaroKruck\Ejercicios_Basicos\src\main\kotlin\Main.kt
